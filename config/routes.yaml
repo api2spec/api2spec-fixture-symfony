@@ -1,0 +1,54 @@
+health:
+  path: /health
+  controller: App\Controller\HealthController::index
+  methods: GET
+
+health_ready:
+  path: /health/ready
+  controller: App\Controller\HealthController::ready
+  methods: GET
+
+users_list:
+  path: /users
+  controller: App\Controller\UserController::list
+  methods: GET
+
+users_create:
+  path: /users
+  controller: App\Controller\UserController::create
+  methods: POST
+
+users_show:
+  path: /users/{id}
+  controller: App\Controller\UserController::show
+  methods: GET
+
+users_update:
+  path: /users/{id}
+  controller: App\Controller\UserController::update
+  methods: PUT
+
+users_delete:
+  path: /users/{id}
+  controller: App\Controller\UserController::delete
+  methods: DELETE
+
+users_posts:
+  path: /users/{userId}/posts
+  controller: App\Controller\UserController::posts
+  methods: GET
+
+posts_list:
+  path: /posts
+  controller: App\Controller\PostController::list
+  methods: GET
+
+posts_show:
+  path: /posts/{id}
+  controller: App\Controller\PostController::show
+  methods: GET
+
+posts_create:
+  path: /posts
+  controller: App\Controller\PostController::create
+  methods: POST
