@@ -7,3 +7,9 @@ services:
       - .:/app
     environment:
       - APP_ENV=dev
+
+  test:
+    build: .
+    volumes:
+      - .:/app
+    command: php ./vendor/bin/simple-phpunit

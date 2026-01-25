@@ -10,7 +10,7 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 WORKDIR /app
 
 COPY composer.json ./
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --optimize-autoloader
 
 COPY . .
 

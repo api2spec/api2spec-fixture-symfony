@@ -22,7 +22,24 @@ class UserController
 
     public function create(Request $request): JsonResponse
     {
-        $data = json_decode($request->getContent(), true);
+        $data = json_decode($request->getContent(), true) ?? [];
+
+        $errors = [];
+        if (empty($data['name'])) {
+            $errors['name'] = 'Name is required';
+        }
+        if (empty($data['email'])) {
+            $errors['email'] = 'Email is required';
+        }
+
+        if (!empty($errors)) {
+            return new JsonResponse([
+                'code' => 'VALIDATION_ERROR',
+                'message' => 'Validation failed',
+                'details' => $errors,
+            ], Response::HTTP_BAD_REQUEST);
+        }
+
         $data['id'] = 1;
         return new JsonResponse($data, Response::HTTP_CREATED);
     }
